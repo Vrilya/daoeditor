@@ -82,6 +82,12 @@ def _real(type_id, typename, base, format):
                 return False
             return oldne(self, other)
         newtype.__ne__ = newne
+
+    # Lägg till en metod för att returnera en enkel strängrepresentation
+    def __str__(self):
+        return f"{float(self)}"
+    newtype.__str__ = __str__
+
     return newtype
 
 def _subtype(type_id, typename, base, format):
